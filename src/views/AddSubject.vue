@@ -1,0 +1,29 @@
+<template>
+  <ion-page>
+    <!-- Page header with menu button -->
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Add Subject</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <SubjectForm />
+    </ion-content>
+  </ion-page>
+</template>
+
+<script setup lang="ts">
+import { 
+  IonPage, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonContent, 
+  IonButtons, 
+  IonMenuButton 
+} from '@ionic/vue';
+import SubjectForm from '@/components/SubjectForm.vue';
+</script>

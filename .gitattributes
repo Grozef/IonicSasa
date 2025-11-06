@@ -1,0 +1,2 @@
+android/app/src/main/assets/model/fr/encoder_jit_trace-pnnx.ncnn.bin filter=lfs diff=lfs merge=lfs -text
+*.ncnn.bin filter=lfs diff=lfs merge=lfs -text
