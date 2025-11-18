@@ -35,8 +35,8 @@
       </ion-menu>
 
       <!-- Render TabsLayout for mobile (Android/iOS), or router-outlet for web -->
-      <TabsLayout v-if="isMobile" id="main-content" />
-      <ion-router-outlet v-else id="main-content"></ion-router-outlet>
+      <TabsLayout v-if="isMobile" id="main-content" class="main-content-with-offset" />
+      <ion-router-outlet v-else id="main-content" class="main-content-with-offset"></ion-router-outlet>
     </ion-split-pane>
   </ion-app>
 </template>
@@ -66,8 +66,8 @@ import {
   imagesSharp,
   addCircleOutline,
   addCircleSharp,
-  cameraOutline,
-  cameraSharp,
+  // cameraOutline,
+  // cameraSharp,
   timeOutline,
   timeSharp,
   colorPaletteOutline,
@@ -124,6 +124,11 @@ watch(
 </script>
 
 <style scoped>
+/* Offset for ReportProgressBar */
+.main-content-with-offset {
+  padding-top: 60px; /* Matches ReportProgressBar height */
+}
+
 /* Ensure ion-app respects safe areas */
 .ion-padding-top {
   padding-top: env(safe-area-inset-top, 0px);

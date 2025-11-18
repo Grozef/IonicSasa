@@ -25,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/photo-capture/:id',
+    path: '/photo-capture/:id?',
     name: 'PhotoCapture',
     component: () => import('@/views/PhotoCapture.vue'),
     props: true,

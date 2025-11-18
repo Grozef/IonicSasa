@@ -2,9 +2,12 @@
   <ion-page>
     <!-- HEADER + HAMBURGER -->
     <ion-header>
+      <!-- <ion-toolbar> -->
         <ion-buttons slot="start">
           <ion-menu-button menu="main-menu"></ion-menu-button>
         </ion-buttons>
+        <!-- <ion-title>Art Social Publisher</ion-title> -->
+      <!-- </ion-toolbar> -->
     </ion-header>
 
     <!-- TABS -->
@@ -19,13 +22,13 @@
         </ion-tab-button>
 
         <!-- Capturer / Nouvelle photo -->
-        <ion-tab-button tab="capture" href="/inspection-subjects">
+        <ion-tab-button tab="capture" href="/photo-capture">
           <ion-icon :icon="cameraOutline" />
           <ion-label>Capturer</ion-label>
         </ion-tab-button>
 
         <!-- Éditer / Métadonnées -->
-        <ion-tab-button tab="edit" href="/add-subject">
+        <ion-tab-button tab="edit" href="/photo-edit">
           <ion-icon :icon="createOutline" />
           <ion-label>Éditer</ion-label>
         </ion-tab-button>
@@ -55,6 +58,8 @@ import {
   IonIcon,
   IonRouterOutlet,
   IonHeader,
+  // IonToolbar,
+  // IonTitle,
   IonButtons,
   IonMenuButton,
 } from '@ionic/vue';
@@ -72,11 +77,11 @@ ion-header {
 }
 
 /* Style personnalisé pour la tab bar */
-ion-tab-bar {
+/* ion-tab-bar {
   --background: var(--ion-background-color);
   border-top: 1px solid var(--ion-border-color, #e0e0e0);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-}
+} */
 
 ion-tab-button {
   --color: var(--ion-color-medium);
