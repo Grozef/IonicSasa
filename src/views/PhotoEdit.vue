@@ -124,7 +124,7 @@
                     label="Description"
                     label-placement="floating"
                     placeholder="Décrivez votre œuvre..."
-                    rows="4"
+                    :rows="4"
                     auto-grow
                   ></ion-textarea>
                 </ion-item>

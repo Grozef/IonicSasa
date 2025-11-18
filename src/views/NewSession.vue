@@ -146,7 +146,7 @@
             label="Description (optionnelle)"
             label-placement="floating"
             placeholder="Décrivez votre collection..."
-            rows="3"
+            :rows="3"
           ></ion-textarea>
         </ion-item>
         <ion-button
