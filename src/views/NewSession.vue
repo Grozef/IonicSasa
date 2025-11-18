@@ -209,7 +209,7 @@ const isCreateCollectionModalOpen = ref(false);
 const newCollectionName = ref('');
 const newCollectionDescription = ref('');
 
-const nextStepPath = '/inspection-subjects'; // Sera la page de capture de photos
+const nextStepPath = '/photo-capture'; // Page de capture de photos
 
 /**
  * Vérifier si on peut démarrer la session

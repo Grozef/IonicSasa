@@ -56,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/history',
     name: 'History',
-    component: () => import('@/views/InspectionHistory.vue'),
+    component: () => import('@/views/SessionHistory.vue'),
     meta: {
       title: 'Historique'
     }

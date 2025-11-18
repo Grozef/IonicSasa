@@ -306,7 +306,7 @@ function closePhotoViewer() {
  */
 function editPhoto(photo: any) {
   photoStore.selectPhoto(photo.id);
-  router.push('/add-subject'); // Sera la page d'édition
+  router.push('/photo-edit');
 }
 
 /**
@@ -369,7 +369,7 @@ function goToEdit() {
   if (photos.value.length > 0) {
     // Sélectionner automatiquement la première photo
     photoStore.selectPhoto(photos.value[0].id);
-    router.push('/add-subject');
+    router.push('/photo-edit');
   }
 }
 

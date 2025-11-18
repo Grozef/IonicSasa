@@ -32,12 +32,11 @@
             </ion-item>
           </ion-list>
         </ion-content>
-        <ReportProgressBar />
       </ion-menu>
 
       <!-- Render TabsLayout for mobile (Android/iOS), or router-outlet for web -->
-      <TabsLayout v-if="isMobile" id="main-content" class="main-content-with-offset" />
-      <ion-router-outlet v-else id="main-content" class="main-content-with-offset"></ion-router-outlet>
+      <TabsLayout v-if="isMobile" id="main-content" />
+      <ion-router-outlet v-else id="main-content"></ion-router-outlet>
     </ion-split-pane>
   </ion-app>
 </template>
@@ -61,7 +60,6 @@ import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useGalleryStore } from './stores/galleryStore';
 import TabsLayout from './components/TabsLayout.vue';
-import ReportProgressBar from './components/ReportProgressBar.vue';
 import { Capacitor } from '@capacitor/core';
 import {
   imagesOutline,
@@ -87,10 +85,9 @@ const isAndroid = Capacitor.getPlatform() === 'android';
 // 1. DEFINE ALL PAGES WITH PLATFORM TAGS
 const allAppPages = [
   { title: 'Ma Galerie', url: '/dashboard', iosIcon: imagesOutline, mdIcon: imagesSharp, platform: 'all' },
-  { title: 'Nouvelle Session', url: '/new-inspection', iosIcon: addCircleOutline, mdIcon: addCircleSharp, platform: 'web' },
-  { title: 'Capturer Photos', url: '/inspection-subjects', iosIcon: cameraOutline, mdIcon: cameraSharp, platform: 'web' },
-  { title: 'Éditer & Métadonnées', url: '/add-subject', iosIcon: createOutline, mdIcon: createSharp, platform: 'all' },
-  { title: 'Historique', url: '/past-inspections', iosIcon: timeOutline, mdIcon: timeSharp, platform: 'web' },
+  { title: 'Nouvelle Session', url: '/new-session', iosIcon: addCircleOutline, mdIcon: addCircleSharp, platform: 'web' },
+  { title: 'Éditer & Métadonnées', url: '/photo-edit', iosIcon: createOutline, mdIcon: createSharp, platform: 'all' },
+  { title: 'Historique', url: '/history', iosIcon: timeOutline, mdIcon: timeSharp, platform: 'web' },
   { title: 'Paramètres', url: '/settings', iosIcon: settingsOutline, mdIcon: settingsSharp, platform: 'mobile' },
 ];
 
@@ -127,11 +124,6 @@ watch(
 </script>
 
 <style scoped>
-/* Offset for ReportProgressBar */
-.main-content-with-offset {
-  padding-top: 60px; /* Matches ReportProgressBar height */
-}
-
 /* Ensure ion-app respects safe areas */
 .ion-padding-top {
   padding-top: env(safe-area-inset-top, 0px);

@@ -248,25 +248,15 @@
                 <ion-item>
                   <ion-input
                     v-model="newHashtag"
-                    placeholder="Ajouter un hashtag (#art)"
+                    placeholder="art, peinture, abstrait..."
                     @keyup.enter="addHashtag"
                   >
+                    <div slot="start" style="color: var(--ion-color-primary); font-weight: bold; padding-right: 4px;">#</div>
                     <ion-button slot="end" @click="addHashtag" fill="clear">
                       <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
                     </ion-button>
                   </ion-input>
                 </ion-item>
-              </ion-card-content>
-            </ion-card>
-
-            <!-- Notes vocales -->
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>Notes</ion-card-title>
-                <ion-card-subtitle>Utilisez la reconnaissance vocale</ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <NotesCaptureCard />
               </ion-card-content>
             </ion-card>
           </div>
@@ -331,7 +321,7 @@ import { ref, computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { usePhotoStore } from '@/stores/photoStore';
 import { useMetadataStore } from '@/stores/metadataStore';
-import NotesCaptureCard from '@/components/NotesCaptureCard.vue';
+import { useGalleryStore } from '@/stores/galleryStore';
 import {
   arrowBackOutline,
   checkmarkOutline,
@@ -447,14 +437,24 @@ function saveAndContinue() {
  * Aller à la capture
  */
 function goToCapture() {
-  router.push('/inspection-subjects');
+  const galleryStore = useGalleryStore();
+  if (galleryStore.activeSession.id) {
+    router.push(`/photo-capture/${galleryStore.activeSession.id}`);
+  } else {
+    router.push('/dashboard');
+  }
 }
 
 /**
  * Aller à la publication
  */
 function goToPublish() {
-  router.push('/inspection-review');
+  const galleryStore = useGalleryStore();
+  if (galleryStore.activeSession.id) {
+    router.push(`/publish/${galleryStore.activeSession.id}`);
+  } else {
+    router.push('/dashboard');
+  }
 }
 
 /**

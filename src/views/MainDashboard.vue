@@ -186,7 +186,7 @@
           </ion-card>
 
           <!-- Historique -->
-          <ion-card class="custom-card" @click="$router.push('/past-inspections')">
+          <ion-card class="custom-card" @click="$router.push('/history')">
             <ion-card-header>
               <div class="card-header-content">
                 <ion-icon :icon="timeOutline" class="header-icon"></ion-icon>
@@ -306,8 +306,8 @@ const isCollectionSelectorOpen = ref(false);
 const selectedDraftId = ref<number | undefined>(undefined); 
 const statusFilter = ref('all');
 
-const newSessionPath = '/new-inspection';
-const editSessionBasePath = '/inspection-subjects';
+const newSessionPath = '/new-session';
+const editSessionBasePath = '/photo-capture';
 
 /**
  * Sessions brouillons triées par date

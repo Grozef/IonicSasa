@@ -296,5 +296,15 @@ export const useGalleryStore = defineStore('gallery', {
       this.collections.push(newCollection);
       return newCollection.id;
     },
+
+    deleteSession(sessionId: number) {
+      this.sessions = this.sessions.filter(s => s.id !== sessionId);
+      // Si la session supprimée était active, réinitialiser
+      if (this.activeSession.id === sessionId) {
+        this.activeSession.id = null;
+        this.activeSession.collectionId = null;
+        this.activeSession.collectionName = null;
+      }
+    },
   },
 });

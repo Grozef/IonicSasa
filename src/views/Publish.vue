@@ -464,7 +464,7 @@ function viewPhoto(photo: any) {
  * Aller à l'édition
  */
 function goToEdit() {
-  router.push('/add-subject');
+  router.push('/photo-edit');
 }
 
 /**
